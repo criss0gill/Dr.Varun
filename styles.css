@@ -1,0 +1,779 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px; /* Prevent content from hiding behind the fixed navbar */
+    background-color: #272727;
+}
+
+/* Navbar Section */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background-color: #000000;
+    position: fixed; /* Fixed position for sticky navbar */
+    top: 0; /* Stick to the top of the viewport */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Stay above other elements */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow for better visibility */
+}
+
+.nav-links {
+    display: flex;
+}
+.nav-links a {
+    color: #ffffff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-links a:hover {
+    color: #2d84f7;
+    font-weight: bold;
+}
+
+/* Menu Icon with Label */
+.menu-icon-container {
+    display: flex;
+    justify-content: flex-end; /* Align menu icon to the right */
+    align-items: center;
+    cursor: pointer;
+    width: 100%; /* Span full width of the navbar */
+    position: relative; /* Keeps the label in a consistent position */
+}
+
+.menu-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px; /* Adds spacing from the edge */
+    filter: invert(1);
+    margin-top: 10px;
+}
+
+.menu-label {
+    position: absolute;
+    left: 50%; /* Center the menu text horizontally */
+    transform: translateX(-60%);
+    color: #2d84f7;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Styling for Healthcare Specialist text */
+.specialist-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-60%);
+    color: rgb(255, 255, 255); /* Set text color to black */
+    font-size: 14px; /* Adjust size for the specialist label */
+    font-weight: normal; /* Optional: set weight to normal */
+    margin-top: 35px; /* Add a small margin for spacing */
+    font-weight: bold;
+}
+
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        display: flex; /* Always flex for smooth animation */
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #000000;
+        width: 100%;
+        padding: 0 1rem;
+        overflow: hidden; /* Hide content when closed */
+        max-height: 0; /* Start closed */
+        opacity: 0; /* Start invisible */
+        transition: max-height 0.4s ease, opacity 0.4s ease; /* Smooth animation */
+        align-items: center;
+        margin-top: 20px;
+    }
+    .nav-links a {
+        margin: 0.4rem 0;
+        opacity: 0; /* Start invisible */
+        transition: opacity 0.7s ease; /* Fade-in effect for links */
+    }
+
+    /* When active: Open the menu */
+    .nav-links.active {
+        max-height: 500px; /* Enough space for links */
+        opacity: 1;
+    }
+    .nav-links.active a {
+        opacity: 1; /* Links fade in */
+    }
+
+    .menu-icon-container {
+        display: flex;
+    }
+
+    .menu-label {
+        font-size: 18px;
+    }
+}
+
+
+/* Apply smooth scrolling to the entire page */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust this based on mobile navbar height */
+}
+
+/* Adjust the padding for smaller screens if necessary */
+.section {
+    padding-top: 60px;
+    margin-top: -60px;
+} 
+
+
+
+/* Hide menu icon on larger screens (desktop/tablet) */
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none; /* Hide the menu icon */
+    }
+
+    .navbar {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Image Slider Styles */
+.image-slider {
+    width: 100%;
+    max-width: 1920px; /* Adjust the size of the slider */
+    margin: 10px auto; /* Center the slider */
+    overflow: hidden; /* Hide overflowing images */
+    position: relative;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust height based on your images */
+}
+
+.slider-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fill the container */
+    object-position: top;
+    opacity: 0; /* Initially hide all images */
+    transition: opacity 1s ease-in-out; /* Smooth transition for image fade-in */
+}
+
+.slider-image.active {
+    opacity: 1; /* Show the active image */
+}
+
+/* Transparent Overlay */
+.slider-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Black transparent sheet */
+    z-index: 1; /* Place it above the images */
+    pointer-events: none; /* Allow interaction with underlying images */
+}
+
+/* General Styles */
+.slider-text {
+    position: absolute;
+    top: 70%; /* Move to vertical center */
+    left: 50%; /* Move to horizontal center */
+    transform: translate(-50%, -50%); /* Perfect centering */
+    color: #fff; /* White text color */
+    font-size: 1.5rem; /* Adjust text size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    z-index: 2; /* Ensure text stays above overlay */
+    opacity: 1; /* Start visible */
+    transition: opacity 1.7s ease-in-out; /* Smooth fade-in-out transition */
+}
+
+/* Static "Better" Text - White Color */
+.white-text {
+    color: #fff; /* White color for "Better" */
+    font-size: 2rem; /* Adjust text size */
+    font-weight: bold;
+}
+
+/* Rotating Words - Blue Color */
+.blue-text {
+    color: #006eff; /* Blue color for rotating words */
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: opacity 1.7s ease-in-out; /* Smooth fade effect */
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .slider-container {
+        height: 300px; /* Adjust height based on your images */
+    }
+}
+
+/* Health Benefits Section Styling */
+#health-benefits {
+    text-align: center; /* Center content */
+    padding: 2rem; /* Add space inside the section */
+    background-color: #272727; /* Light gray background */
+}
+
+#health-benefits h2 {
+    font-size: 2rem; /* Heading font size */
+    margin-bottom: 1rem; /* Space below heading */
+    color: #2d84f7; /* Blue heading color */
+}
+
+#health-benefits p {
+    font-size: 1rem; /* Paragraph font size */
+    color: #ffffff; /* Dark gray text color */
+    line-height: 1.6; /* Line spacing */
+    max-width: 680px; /* Limit text width */
+    margin: 1rem auto; /* Center text horizontally with spacing */
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    #health-benefits p {
+    max-width: 600px; /* Limit text width */
+}}
+
+
+/* Doctor's Image Section */
+#doctor-image {
+    text-align: center; /* Center the image horizontally */
+    margin: 0; /* Remove extra margin */
+    overflow: hidden; /* Crop any overflow */
+}
+
+.doctor-photo {
+    width: 100%; /* Make image take full width */
+    height: 450px; /* Set fixed height to crop the image */
+    object-fit: cover; /* Crop the image while maintaining proportions */
+    object-position: top; /* Ensure the top of the image is visible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a soft shadow */
+    transition: transform 0.3s ease; /* Smooth animation on hover */
+}
+
+.doctor-photo:hover {
+    transform: scale(1.03); /* Subtle zoom effect on hover */
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .doctor-photo {
+        height: auto; /* Allow full image height on smaller screens */
+        max-width: 100%; /* Ensure it doesn't overflow on mobile */
+        object-fit: contain; /* Show full image without cropping */
+    }
+}
+
+
+
+
+/* About Section Styling */
+#about {
+    background-color: #000000; /* Light background color */
+    padding: 2rem 1rem; /* Add space inside the section */
+    text-align: center; /* Center-align the content */
+}
+
+#about h2 {
+    font-size: 2rem; /* Adjust heading size */
+    color: #2d84f7; /* Blue color for the heading */
+    margin-bottom: 1rem; /* Add space below the heading */
+}
+
+#about p {
+    font-size: 1.1rem; /* Set paragraph font size */
+    color: #ffffff; /* Dark gray color for text */
+    line-height: 1.6; /* Improve readability with line spacing */
+    max-width: 900px; /* Limit paragraph width */
+    margin: 0 auto; /* Center the paragraph horizontally */
+}
+
+/* Timeline Section */
+#timeline {
+    position: relative;
+    width: 80%;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.timeline-heading {
+    color: #2d84f7;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+/* Vertical Line in the Center */
+.timeline-container::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background-color: #2d84f7;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1rem;
+}
+
+.timeline-item.right {
+    left: 50%; /* Right side boxes */
+}
+
+.timeline-item.left {
+    left: 0; /* Left side boxes */
+}
+
+/* Timeline Content */
+.timeline-content {
+    background-color: #000000;
+    padding: 1rem 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
+    color: #2d84f7;
+}
+
+.timeline-content p {
+    color: #ffffff;
+}
+
+/* Small Lines Connecting the Vertical Line */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: #2d84f7;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.timeline-item.right::before {
+    left: 25px; /* Connects to the left side of the vertical line */
+}
+
+.timeline-item.left::before {
+    right: 25px; /* Connects to the right side of the vertical line */
+}
+
+.timeline-item.right .timeline-content::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -18px;
+    width: 19px;
+    height: 2px;
+    background-color: #2d84f7;
+}
+
+.timeline-item.left .timeline-content::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: -18px;
+    width: 19px;
+    height: 2px;
+    background-color: #2d84f7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%; /* Full width boxes on small screens */
+        left: 0; /* Reset position */
+    }
+    .timeline-container::after {
+        left: 10px; /* Adjust vertical line position */
+    }
+    .timeline-item.right .timeline-content::before {
+        left: -6px; /* Align connecting lines */
+        width: 20px;
+    }
+    .timeline-item.left .timeline-content::before {
+        left: -6px; /* Align connecting lines */
+        width: 20px;
+    }
+    .timeline-item::before {
+        left: 25px; /* Adjust dots */
+    }
+    .timeline-item.right {
+        left: 0%; /* Right side boxes */
+    }
+    .timeline-item.right::before {
+        left: 25px; /* Connects to the left side of the vertical line */
+    }
+}
+
+/* Testimonial Section */
+.testimonial-heading {
+    text-align: center;
+    color: #2d84f7;
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
+/* Testimonial Section */
+#testimonials {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow content */
+    position: relative;
+    text-align: center;
+    background-color: #000000;
+}
+
+/* Testimonial Slider */
+.testimonial-slider {
+    display: flex;
+    transition: transform 0.6s ease-in-out; /* Smooth transition */
+}
+
+.testimonial-slide {
+    flex: 0 0 100%; /* Each slide takes 100% width */
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Testimonial Image */
+.testimonial-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 4px solid #2d84f7;
+}
+
+/* Testimonial Quote */
+.testimonial-quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Testimonial Name */
+.testimonial-name {
+    font-weight: bold;
+    color: #2d84f7;
+}
+
+/* Navigation Arrows */
+.testimonial-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.nav-arrow {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin: 0 1rem;
+    margin-bottom: 4rem;
+    transition: transform 0.3s ease;
+    filter: invert(1);
+}
+
+.nav-arrow:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial-heading {
+        font-size: 1.8rem;
+    }
+    .testimonial-quote {
+        font-size: 1rem;
+    }
+}
+
+/* Inspiration Section Styling */
+#inspiration {
+    padding: 2rem 1rem; /* Add padding */
+    text-align: center; /* Center align content */
+    background-color: #272727; /* Light background color */
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    color: #007BFF; /* Blue heading */
+    margin-bottom: 2rem;
+}
+
+.inspiration-item {
+    margin: 2rem 0; /* Add spacing between videos */
+}
+
+.person-name {
+    font-size: 1.5rem;
+    color: #ffffff; /* Dark text for person's name */
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Space below each video */
+}
+
+.video-container video {
+    width: 100%;
+    max-width: 800px; /* Limit video width */
+    border: 5px solid #272727; /* Light border around videos */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.video-container video:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 2rem;
+    }
+    .person-name {
+        font-size: 1.3rem;
+    }
+    .video-container video {
+        width: 95%; /* Adjust video width for smaller screens */
+    }
+}
+
+/* Final Word Section Styling */
+#final-word {
+    padding: 2rem 1rem; /* Add padding */
+    background-color: #000000; /* Light background color */
+    text-align: center; /* Center align the text */
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    color: #007BFF; /* Blue heading color */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.final-word-text {
+    font-size: 1.2rem;
+    color: #ffffff; /* Dark text color */
+    line-height: 1.8; /* Line spacing for better readability */
+    max-width: 800px; /* Limit paragraph width */
+    margin: 0 auto 2rem; /* Center paragraph with spacing below */
+    font-style: italic;
+}
+
+/* Video Styling */
+.final-word-video-container {
+    width: 300px; /* Set fixed width for the circular shape */
+    height: 300px; /* Make height equal to width for a perfect circle */
+    margin: 2rem auto; /* Center the container */
+    overflow: hidden; /* Ensure the video fits inside the circle */
+    border-radius: 50%; /* Make the container circular */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* Add a background to fill the circular area */
+}
+
+.final-word-video-container video {
+    width: 100%; /* Adjust the video width */
+    height: 100%; /* Ensure the video covers the circle */
+    object-fit: cover; /* Crop the video to fit inside the circle */
+    border: none; /* Remove border */
+}
+
+/* ============================
+   Address Section Styling
+   ============================ */
+
+   #address-section {
+    padding: 2rem 1rem;
+    background-color: #272727; /* Light background */
+    text-align: center;
+}
+
+/* Main Section Heading */
+.address-section-heading {
+    font-size: 2.5rem;
+    color: #007BFF; /* Blue color for main heading */
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Physical Address Styling */
+.physical-address {
+    margin-bottom: 3rem; /* Space between Physical and Virtual Address */
+}
+
+.physical-address-heading {
+    font-size: 1.8rem;
+    color: #fdfdfd; /* Darker color for sub-heading */
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.physical-address-text {
+    font-size: 1.2rem;
+    color: #ffffff; /* Muted text color */
+    margin-bottom: 1.5rem;
+}
+
+/* Map Styling */
+.physical-map-container {
+    margin: 1rem auto 2rem;
+    max-width: 600px; /* Restrict map width */
+    border: 2px solid #272727; /* Optional border */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Virtual Address Styling */
+.virtual-address-heading {
+    font-size: 1.8rem;
+    color: #ffffff; /* Darker color for sub-heading */
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.virtual-video-container {
+    margin: 2rem auto;
+    max-width: 800px; /* Restrict video width */
+    width: 100%;
+    position: relative; /* Required for aspect ratio trick */
+    padding-top: 125%; /* 4:5 aspect ratio (height = 125% of width) */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.virtual-video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the container */
+    border: none;
+}
+
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .physical-map-container,
+    .virtual-video-container {
+        max-width: 100%; /* Full width for small screens */
+    }
+
+    .physical-address-text {
+        font-size: 1rem; /* Smaller text size */
+    }
+}
+
+/* Responsive Design for Large Screens (Desktops) */
+@media (min-width: 1025px) {
+    .physical-map-container {
+        max-width: 450px; /* Smaller map for desktops */
+    }
+
+    .virtual-video-container {
+        max-width: 450px; /* Smaller video container for desktops */
+        padding-top: 40%; /* Adjust ratio slightly */
+    }
+}
+
+
+
+/* Footer Section */
+.footer-section {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #000000; /* Optional: Adjust background */
+}
+
+.footer-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff; /* Adjust heading color */
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center; /* Center the icons horizontally */
+    gap: 1rem; /* Add spacing between icons */
+}
+
+.social-icon {
+    display: inline-block;
+    text-decoration: none; /* Remove underline */
+    filter: invert(1);
+}
+
+.social-icon-img {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+    transition: transform 0.3s ease; /* Smooth animation for hover */
+}
+
+.social-icon-img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <!-- Header with navigation -->
+    <header>
+        <!-- Navigation Section -->
+        <nav class="navbar">
+            <!-- Menu Icon for Mobile -->
+            <div class="menu-icon-container" onclick="toggleMenu()">
+                <img src="images/icons/menu.png" alt="Menu Icon" class="menu-icon">
+                <h2 class="menu-label">Varun Grover</h2>
+                <p class="specialist-label">Health Specialist</p>
+            </div>
+
+            <!-- Navigation Links -->
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="#health-benefits">Home</a>
+                <a href="#doctor-image">About</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#inspiration">Inspiration</a>
+                <a href="#address-section">Address</a>
+                <a href="#footer-section">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <!-- Image Slider Section -->
+        <section class="image-slider">
+            <div class="slider-container">
+                <!-- Static "Better" text and dynamic blue text -->
+                <div class="slider-text" id="slider-text">
+                    <span class="white-text">Better</span>
+                    <span class="blue-text" id="rotating-text">Health</span>
+                </div>
+        
+                <!-- Slider Images -->
+                <img src="images/bg/img1.jpg" class="slider-image active" alt="Slide 1">
+                <img src="images/bg/img2.jpg" class="slider-image" alt="Slide 2">
+                <img src="images/bg/img3.jpg" class="slider-image" alt="Slide 3">
+                <img src="images/bg/img4.jpg" class="slider-image" alt="Slide 4">
+            </div>
+        </section>
+        
+        <!-- Health Benefits Section -->
+        <section id="health-benefits">
+            <!-- Heading -->
+            <h2>Benefits of Good Health</h2>
+
+            <!-- Description -->
+            <p>
+                Good health is the foundation of a happy and fulfilling life. It allows you to stay active, improve productivity, and enjoy every moment to the fullest.
+            </p>
+            <p>
+                Maintaining good health reduces the risk of chronic diseases, boosts energy levels, and enhances mental well-being. It also strengthens your immune system, helping you fight illnesses effectively.
+            </p>
+            <p>
+                A healthy lifestyle promotes longevity, improves sleep quality, and empowers you to live a balanced and stress-free life.
+            </p>
+        </section>
+
+
+        <!-- Doctor's Image Section -->
+        <section id="doctor-image">
+            <img src="images/bg/doctor.jpg" alt="Dr. Lovey Khanna" class="doctor-photo">
+        </section>
+
+        <!-- Doctor's About Section -->
+        <section id="about">
+            <h2>Hey, I'm Dr.Varun</h2>
+            <p>"I truly believe that staying happy is the cornerstone of good health. Happiness is the first medicine we can give ourselves, and it doesn’t come from a pharmacy—it comes from within. It boosts our mental, emotional, and even physical well-being. Along with a positive mindset, maintaining a balanced lifestyle, eating nutritious food, and staying active are equally important. After all, health isn’t just about the absence of illness; it’s about embracing life with energy, purpose, and joy."</p>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <h2 class="timeline-heading">Timeline</h2>
+            <div class="timeline-container">
+                <!-- Box 1 (Right Side) -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2018</h3>
+                        <p>Makhu sabdi asi tesi kiti.</p>
+                    </div>
+                </div>
+        
+                <!-- Box 2 (Left Side) -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Moge sabdi tesi asi kiti.</p>
+                    </div>
+                </div>
+        
+                <!-- Box 3 (Right Side) -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Canada sabdi asi tesi krr reha.</p>
+                    </div>
+                </div>
+        
+                <!-- Box 4 (Left Side) -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>20xx</h3>
+                        <p>Planing to leave this planet. hun aliens di asi tesi krrni.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section id="testimonials">
+            <h2 class="testimonial-heading">What Our Patients Say!!</h2>
+
+            <!-- Testimonial Slider -->
+            <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide active">
+                    <img src="images/bg/testimonial1.jpg" alt="Person 1" class="testimonial-image">
+                    <p class="testimonial-quote">"Dr. Varun Grover has been an absolute blessing in my life. Now I don't feel any pain. Highly recommend!"</p>
+                    <h4 class="testimonial-name">- John Doe</h4>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide">
+                    <img src="images/bg/testimonial2.jpg" alt="Person 2" class="testimonial-image">
+                    <p class="testimonial-quote">"I feel healthier and happier thanks to Dr. Grover's care and guidance."</p>
+                    <h4 class="testimonial-name">- Jane Smith</h4>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide">
+                    <img src="images/bg/testimonial3.jpg" alt="Person 3" class="testimonial-image">
+                    <p class="testimonial-quote">"Professional, kind, and extremely knowledgeable. Truly life-changing!"</p>
+                    <h4 class="testimonial-name">- Mark Wilson</h4>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-slide">
+                    <img src="images/bg/testimonial4.jpg" alt="Person 4" class="testimonial-image">
+                    <p class="testimonial-quote">"A caring doctor who genuinely puts his patients first. He fixed my broken leg. Thank you!"</p>
+                    <h4 class="testimonial-name">- Emily Brown</h4>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="testimonial-navigation">
+                <img src="images/icons/left.png" alt="Left Arrow" id="left-arrow" class="nav-arrow">
+                <img src="images/icons/right.png" alt="Right Arrow" id="right-arrow" class="nav-arrow">
+            </div>
+        </section>
+
+        
+        <!-- Inspiration Section -->
+        <section id="inspiration">
+            <h2 class="section-heading">Inspiration</h2>
+
+            <!-- First Person's Video -->
+            <div class="inspiration-item">
+                <h3 class="person-name">Bottle Baba (uff-uzz specialist)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Second Person's Video -->
+            <div class="inspiration-item">
+                <h3 class="person-name">Dr. Patlu lal (heart-specialist)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="videos/video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Third Person's Video -->
+            <div class="inspiration-item">
+                <h3 class="person-name">Dr. Bakrulla (gupt-rog specialist)</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="videos/video3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Word Section -->
+        <section id="final-word">
+            <h2 class="section-heading">Final Word by Dr.Varun Grover</h2>
+            <p class="final-word-text">
+                "After eating burgers, pizza, and momos, whenever you feel blue, just remember us, we'll always be ready to serve you!"
+            </p>
+            <p class="final-word-text">
+                "बर्गर, पीजा, मोमोस खाकर जब भी आप दुख सहेंगे, याद कीजिएगा हमें, हम आपकी ख़िदमत में हमेशा तैयार रहेंगे!"
+            </p>
+            <div class="final-word-video-container">
+                <video controls>
+                    <source src="videos/final.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+
+        <!-- Address Section -->
+        <section id="address-section">
+            <!-- Main Heading -->
+            <h2 class="address-section-heading">Address</h2>
+        
+            <!-- Physical Address Section -->
+            <div class="physical-address">
+                <h3 class="physical-address-heading">Physical Address</h3>
+                <p class="physical-address-text">Puppebu, Svalbard and Jan Mayen</p>
+                <div class="physical-map-container">
+                    <!-- Embedded Google Map -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d557544.0218834018!2d-8.615916512908257!3d70.65974491339166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4f4502605f85b2fb%3A0x84d2c9faf521b4f3!2sPuppebu%208099%2C%20Svalbard%20and%20Jan%20Mayen!5e1!3m2!1sen!2sin!4v1735070880868!5m2!1sen!2sin" 
+                        width="400" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        
+            <!-- Virtual Address Section -->
+            <div class="virtual-address">
+                <h3 class="virtual-address-heading">Virtual Address</h3>
+                <div class="virtual-video-container">
+                    <video controls>
+                        <source src="videos/virtual-address.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+        
+
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="footer-section">
+        <!-- Connect With Us Section -->
+        <div class="footer-section">
+            <h2 class="footer-heading">Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank" class="social-icon">
+                    <img src="images/icons/twitter.png" alt="Twitter Icon" class="social-icon-img">
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <img src="images/icons/facebook.png" alt="Facebook Icon" class="social-icon-img">
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <img src="images/icons/instagram.png" alt="Instagram Icon" class="social-icon-img">
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-icon">
+                    <img src="images/icons/youtube.png" alt="YouTube Icon" class="social-icon-img">
+                </a>
+            </div>
+        </div>
+    </footer>
+       
+</body>
+</html>
